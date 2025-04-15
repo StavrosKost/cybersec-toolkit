@@ -1,0 +1,14 @@
+[
+  {
+    "id": "T1059",
+    "name": "Command and Scripting Interpreter",
+    "description": "Spawns obfuscated PowerShell",
+    "command": "powershell -Enc UwB0AGEAcgB0AC0AUwBsAGUAZQBwADIANAA="
+  },
+  {
+    "id": "T1086",
+    "name": "Scheduled Task",
+    "description": "Create a scheduled task",
+    "command": "schtasks /create /tn \"Updater\" /tr \"cmd.exe /c dir\" /sc hourly"
+  }
+]
