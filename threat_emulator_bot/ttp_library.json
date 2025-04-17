@@ -1,14 +1,101 @@
 [
-  {
-    "id": "T1059",
-    "name": "Command and Scripting Interpreter",
-    "description": "Spawns obfuscated PowerShell",
-    "command": "powershell -Enc UwB0AGEAcgB0AC0AUwBsAGUAZQBwADIANAA="
-  },
-  {
-    "id": "T1086",
-    "name": "Scheduled Task",
-    "description": "Create a scheduled task",
-    "command": "schtasks /create /tn \"Updater\" /tr \"cmd.exe /c dir\" /sc hourly"
-  }
-]
+    {
+      "id": "T1059",
+      "name": "Obfuscated PowerShell",
+      "description": "Executes an obfuscated PowerShell command",
+      "platform": "windows",
+      "command": "powershell.exe -EncodedCommand UwB0AGEAcgB0AC0AUwBsAGUAZQBwADIANAA="
+    },
+    {
+      "id": "T1086",
+      "name": "Scheduled Task Creation",
+      "description": "Creates a scheduled task that runs hourly",
+      "platform": "windows",
+      "command": "schtasks /create /tn \"Updater\" /tr \"cmd.exe /c dir\" /sc hourly"
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner Discovery",
+      "description": "Identifies the user running the current session",
+      "platform": "all",
+      "command": "whoami"
+    },
+    {
+      "id": "T1016",
+      "name": "Network Configuration Discovery",
+      "description": "Displays network configuration",
+      "platform": "windows",
+      "command": "ipconfig /all"
+    },
+    {
+      "id": "T1046",
+      "name": "Open Ports Scan (Local)",
+      "description": "Lists open connections and listening ports",
+      "platform": "all",
+      "command": "netstat -ano"
+    },
+    {
+      "id": "T1063",
+      "name": "Security Software Discovery (WMIC)",
+      "description": "Uses WMIC to list installed antivirus products",
+      "platform": "windows",
+      "command": "wmic /namespace:\\\\root\\SecurityCenter2 path AntiVirusProduct get displayName /format:list",
+      "tactic": "discovery",
+      "url": "https://attack.mitre.org/techniques/T1063/"
+    },
+    {
+      "id": "T1071",
+      "name": "Simulated C2 Communication",
+      "description": "Makes an outbound HTTP request to a blackholed server",
+      "platform": "all",
+      "command": "curl http://example.com/beacon"
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell Execution Example",
+      "description": "Uses PowerShell to list top 5 processes by CPU.",
+      "platform": "windows",
+      "command": "powershell.exe -Command \"Get-Process | Sort-Object CPU -Descending | Select-Object -First 5\"",
+      "tactic": "execution"
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell Example",
+      "description": "Uses cmd.exe to get OS Name and Version.",
+      "platform": "windows",
+      "command": "cmd.exe /c \"systeminfo | findstr /B /C:\\\"OS Name\\\" /C:\\\"OS Version\\\"\"",
+      "tactic": "execution"
+    },
+    {
+      "id": "T1018",
+      "name": "Remote System Discovery (Ping)",
+      "description": "Pings a common external host to check connectivity.",
+      "platform": "all",
+      "command": "ping -n 1 8.8.8.8",
+      "tactic": "discovery"
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery (Tasklist)",
+      "description": "Lists running processes using tasklist.",
+      "platform": "windows",
+      "command": "tasklist /FO CSV",
+      "tactic": "discovery"
+    },
+    {
+      "id": "T1012",
+      "name": "Query Registry (Startup Programs)",
+      "description": "Queries the registry for programs set to run at startup for the local machine.",
+      "platform": "windows",
+      "command": "reg query HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "tactic": "discovery"
+    },
+    {
+      "id": "T1007",
+      "name": "System Service Discovery (SC Query)",
+      "description": "Uses sc query to list system services.",
+      "platform": "windows",
+      "command": "sc query state= all",
+      "tactic": "discovery"
+    }
+  ]
