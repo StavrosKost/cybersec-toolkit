@@ -129,7 +129,7 @@ def main(dry_run=False, iterations=3, ttp_set='ttp_library.json'):
     if ttp_set == 'attack-dataset.json':
         print(f"\n⚙️ Running in MITRE ATT&CK mode using '{ttp_set}' for technique selection.")
         log_to_file(logfile, f"Running in MITRE ATT&CK mode using '{ttp_set}'.")
-        iterations = 5 # Hardcode to 5 iterations for MITRE mode as requested
+        iterations = 5 
 
         # Load command library separately
         command_library = load_ttps('ttp_library.json')
