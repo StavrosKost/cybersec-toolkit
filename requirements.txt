@@ -1,0 +1,3 @@
+# Required libraries for the Threat Emulator Bot and Dashboard
+
+streamlit>=1.30.0
