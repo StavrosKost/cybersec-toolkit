@@ -128,12 +128,3 @@ The `log_analyzer.py` script can be used to parse and summarize logs from the `l
     ```bash
     python log_analyzer.py --date YYYY-MM-DD
     ```
-
-## Deployment
-
-This Streamlit application can be easily deployed using [Streamlit Community Cloud](https://share.streamlit.io/).
-
-1.  Push your project code (including `dashboard.py`, `threat_bot.py`, `requirements.txt`, and all necessary `.json` files) to a GitHub repository.
-2.  Sign up/log in to Streamlit Community Cloud using your GitHub account.
-3.  Create a "New app", select your repository, choose the correct branch, and set the "Main file path" to `dashboard.py`.
-4.  Click "Deploy!".
