@@ -1,0 +1,15 @@
+{
+  "Example Scenario 1: Recon & Sleep": [
+    "T1007",
+    "T1059"
+  ],
+  "Example Scenario 2: All Standard TTPs": [
+    "T1059",
+    "T1007",
+    "T1547.001"
+  ],
+  "Invalid TTP Scenario": [
+    "T1007",
+    "T9999" 
+  ]
+}
